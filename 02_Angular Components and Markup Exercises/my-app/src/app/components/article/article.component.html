@@ -1,0 +1,12 @@
+<li id="{{id}}" class="page-item mr-1 ml-1" style="background-color: lightblue">
+  <p>{{title}}</p>
+    <button class="btn btn-secondary my-1 ml-1"
+            (click)="changeButtonState($event)">{{showLinkButtonText}}
+    </button>
+    <button class="btn btn-secondary my-1 ml-1 mr-1"
+            (click)="changeButtonState($event)">{{showTextButtonText}}
+    </button>
+  <br>
+  <img *ngIf="showLink" src="{{link}}" alt="img not found" width="150" height="150">
+  <p *ngIf="showText">{{text}}</p>
+</li>

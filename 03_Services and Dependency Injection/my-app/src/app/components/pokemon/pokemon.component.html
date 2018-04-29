@@ -1,0 +1,34 @@
+<form>
+  <div class="form-group">
+    <label for="pokemonName">Enter pokemon Name</label>
+    <input type="text"
+           class="form-control"
+           id="pokemonName"
+           placeholder="Search By name"
+           (keyup)="submitForm($event)">
+  </div>
+</form>
+<div class="row mt-2">
+  <table class="table table-bordered table-sm">
+    <thead>
+    <tr class="table-warning">
+      <th scope="col">Number</th>
+      <th scope="col">Attack</th>
+      <th scope="col">Defence</th>
+      <th scope="col">Name</th>
+      <th scope="col">HP</th>
+      <th scope="col">Speed</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let pokemon of pokemonArray" class="table-warning">
+      <td>{{pokemon.id}}</td>
+      <td>{{pokemon.attack}}</td>
+      <td>{{pokemon.defence}}</td>
+      <td>{{pokemon.eName}}</td>
+      <td>{{pokemon.hp}}</td>
+      <td>{{pokemon.speed}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

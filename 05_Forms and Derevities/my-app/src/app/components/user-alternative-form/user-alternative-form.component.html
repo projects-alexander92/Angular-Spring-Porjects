@@ -1,0 +1,90 @@
+<div class="container">
+  <h4>Формата от упражнението, да не се бърка с официалната регистрационна форма</h4>
+  <form [formGroup]="userDetailsForm" (ngSubmit)="submitForm(userDetailsForm)">
+
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email" placeholder="Enter email"
+               formControlName="email">
+        <div class="alert alert-danger"
+             *ngIf="userDetailsForm.get('email').invalid && userDetailsForm.get('email').touched">Email pattern :
+          '.+@.+\\..+'
+        </div>
+      </div>
+
+      <div class="form-group col-sm-6">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter name"
+               formControlName="username">
+        <div class="alert alert-danger"
+             *ngIf="userDetailsForm.get('username').invalid && userDetailsForm.get('username').touched">Min Length: 5
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Enter password"
+               formControlName="password">
+        <div class="alert alert-danger"
+             *ngIf="userDetailsForm.get('password').invalid && userDetailsForm.get('password').touched">Min Length: 5
+        </div>
+      </div>
+
+      <div class="form-group col-sm-6">
+        <label for="confirmPassword">Repeat Password</label>
+        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password"
+               formControlName="repeatPassword">
+        <div class="alert alert-danger" *ngIf="userDetailsForm.controls.repeatPassword.errors?.MatchPassword">Passwords
+          do not patch
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-sm-12">
+        <label for="address">Address</label>
+        <input type="text" class="form-control" id="address" placeholder="Enter address"
+               formControlName="address">
+        <div class="alert alert-danger"
+             *ngIf="userDetailsForm.get('address').invalid && userDetailsForm.get('address').touched">Min Length: 10
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-sm-4">
+        <label for="country">Country</label>
+        <input type="text" class="form-control" id="country" placeholder="Enter country name"
+               formControlName="country">
+        <div class="alert alert-danger"
+             *ngIf="userDetailsForm.get('country').invalid && userDetailsForm.get('country').touched">Min Length: 4
+        </div>
+      </div>
+
+      <div class="form-group col-sm-4">
+        <label for="city">City</label>
+        <input type="text" class="form-control" id="city" placeholder="Enter city name"
+               formControlName="city">
+      </div>
+
+      <div class="form-group col-sm-4">
+        <label for="zipCode">Zip Code</label>
+        <input type="text" class="form-control" id="zipCode" placeholder="Enter zip code"
+               formControlName="zipCode">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-sm-4">
+        <label for="mobile">Mobile</label>
+        <input type="text" class="form-control" id="mobile" placeholder="Enter mobile"
+               formControlName="mobile">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-danger btn-block" [disabled]="!userDetailsForm.valid">Submit</button>
+  </form>
+</div>
